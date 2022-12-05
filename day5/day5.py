@@ -1,3 +1,10 @@
+# ADVENT OF CODE 2022
+# https://adventofcode.com/
+# Day 5
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc2022
+
+
 import re
 
 

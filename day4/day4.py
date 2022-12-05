@@ -1,3 +1,10 @@
+# ADVENT OF CODE 2022
+# https://adventofcode.com/
+# Day 4
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc2022
+
+
 def inc(lower_A, upper_A, lower_B, upper_B):
     return ((lower_B >= lower_A) and (lower_B <= upper_A)
             and (upper_B >= lower_A) and (upper_B <= upper_A))

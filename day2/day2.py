@@ -1,3 +1,10 @@
+# ADVENT OF CODE 2022
+# https://adventofcode.com/
+# Day 2
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc2022
+
+
 # ========== PART ONE ==========
 
 # base scores: rock - 1, paper - 2, scissors - 3

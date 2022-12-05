@@ -1,3 +1,10 @@
+# ADVENT OF CODE 2022
+# https://adventofcode.com/
+# Day 1
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc2022
+
+
 file = open('input.txt', 'r')
 
 # remember individual elves in a list, write total calories for that elf into current position in the list
