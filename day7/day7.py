@@ -37,10 +37,8 @@ def parse_ls(lines, index, line):
         index = index + 1
         line = lines[index]
         if line[0] == "$":
-            index = index - 1
             break
         elif line == "" or line == "\n":
-            index = index - 1
             break
     return contents
 
