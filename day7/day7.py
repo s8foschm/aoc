@@ -6,7 +6,7 @@
 
 import re
 
-# Global variable
+# Global variables
 directory_sizes = {}
 directory_contents = {}
 files = {}
@@ -19,12 +19,12 @@ def parse_command(lines, index, line, working_directory):
         target = parse_cd(lines, index, line)
         working_directory = change_directory(working_directory, target)
         # print("cd", working_directory)
-        return working_directory, index
+        return working_directory
     elif re.match("^[$] ls", line):
-        (contents, index) = parse_ls(lines, index, line)
+        contents = parse_ls(lines, index, line)
         # print("ls", contents)
         directory_contents[working_directory] = contents
-        return working_directory, index
+        return working_directory
         # directory_sizes[working_directory] = find_directory_size(contents)
 
 
@@ -42,7 +42,7 @@ def parse_ls(lines, index, line):
         elif line == "" or line == "\n":
             index = index - 1
             break
-    return (contents, index)
+    return contents
 
 
 def parse_cd(lines, index, line):
@@ -115,10 +115,9 @@ with open('input.txt', 'r') as file:
     working_directory = "/"
     lines = file.readlines()
 
-    for index in range(0, len(lines)):
-        line = lines[index]
+    for (index, line) in enumerate(lines):
         if line[0] == "$":
-            (working_directory, index) = parse_command(lines, index, line, working_directory)
+            working_directory = parse_command(lines, index, line, working_directory)
         elif line == "":
             break
     print(directory_contents)
