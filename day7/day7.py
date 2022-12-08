@@ -113,6 +113,7 @@ with open('input.txt', 'r') as file:
     working_directory = "/"
     lines = file.readlines()
 
+    # PARSE INPUT
     for (index, line) in enumerate(lines):
         if line[0] == "$":
             working_directory = parse_command(lines, index, line, working_directory)
@@ -124,8 +125,10 @@ with open('input.txt', 'r') as file:
         directory_sizes[directory] = get_directory_size(directory)
     print(directory_sizes)
 
+    # PART ONE
     pretty_print(directory_sizes)
 
+    # PART TWO
     occupied = directory_sizes['/']
     free = total_size - occupied
     to_be_freed = necessary_size - free
