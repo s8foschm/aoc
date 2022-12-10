@@ -159,16 +159,16 @@ for instr in instructions:
     instr.execute(data)
 
 # PART ONE
-# total = 0
-# for (index, value) in enumerate(data.values):
-#     if (index + 20) % 40 == 0:
-#         val = index * data.values[index - 2]
-#         total = total + val
-# print("Sum of the signal strengths: ", total)
+total = 0
+for (index, value) in enumerate(data.values):
+    if (index + 20) % 40 == 0:
+        val = index * data.values[index - 2]
+        total = total + val
+print("Sum of the signal strengths: ", total)
 
 # PART TWO
 
 c = CRT()
 c.draw(data.values)
 print(c)
-#print(c.draw_line(0, data.values))
+print("Result: BPJAZGAP")
