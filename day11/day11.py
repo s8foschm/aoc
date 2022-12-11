@@ -5,8 +5,7 @@
 # https://github.com/s8foschm/aoc2022
 import time
 import threading
-
-st = time.time()
+import numpy as np
 
 
 class Monkey:
@@ -24,13 +23,14 @@ class Monkey:
         t.start()
         return t
 
-    def take_round(self, monkeys, management_factor):
+    def take_round(self, monkeys, management_factor, modulo):
         items = self.items
         throwing_list = []
         for (index, item) in enumerate(self.items):
             new_items = self.items
             # print("Monkey inspects item: ", items[index])
-            items[index] = self.operation.execute(item)  # monkey picks up the item
+            # monkey picks up the item, modulo keeps the number manageable
+            items[index] = self.operation.execute(item) % modulo
             self.activity = self.activity + 1
             # print("Worry level increased: ", items[index])
             items[index] = items[index] // management_factor  # monkey doesn't drop the item
@@ -112,39 +112,39 @@ def read_file(file):
     return monkeys
 
 
+# PART ONE
 with(open('input.txt', 'r')) as file:
     monkeys = read_file(file)
 
+st = time.time()
+common_modulo = np.lcm.reduce([monkey.test.condition for monkey in monkeys])
 for i in range(20):
-    print("Round ", i + 1)
+    # print("Round ", i + 1)
     for (index, monkey) in enumerate(monkeys):
-        # print("Monkey ", index)
-        monkey.take_round(monkeys, 3)
-    for (index, monkey) in enumerate(monkeys):
-        print("Monkey ", index, " activity: ", monkey.activity)
-        print("Monkey ", index, " items: ", monkey.items)
-    print("\n")
+    #    print("Monkey ", index)
+         monkey.take_round(monkeys, 3, common_modulo)
+    # for (index, monkey) in enumerate(monkeys):
+    #     print("Monkey ", index, " activity: ", monkey.activity)
+    #     print("Monkey ", index, " items: ", monkey.items)
+    # print("\n")
 
-# PART ONE
 activities = [monkey.activity for monkey in monkeys]
 activities.sort()
 print(activities)
 res = activities[-1] * activities[-2]
 print("Level of Monkey Business: ", res)
+duration = time.time() - st
+print("Execution time: ", duration)
 
 # PART TWO
 with(open('input.txt', 'r')) as file:
     monkeys = read_file(file)
 st = time.time()
+common_modulo = np.lcm.reduce([monkey.test.condition for monkey in monkeys])
 for i in range(10000):
-    print("Round ", i + 1)
-    # threads = []
-    # for (index, monkey) in enumerate(monkeys):
-    #     threads.append(monkey.start_thread(monkeys, 1))
-    # for thread in threads:
-    #     thread.join()
+    #print("Round ", i + 1)
     for monkey in monkeys:
-        monkey.take_round(monkeys, 1)
+        monkey.take_round(monkeys, 1, common_modulo)
 activities = [monkey.activity for monkey in monkeys]
 print(activities)
 activities.sort()
@@ -152,4 +152,9 @@ res = activities[-1] * activities[-2]
 print("Level of Monkey Business: ", res)
 duration = time.time() - st
 print("Execution time: ", duration)
-#time.strftime("%H:%M:%S", time.gmtime(duration))
+
+# TESTING
+# with(open('test_input.txt', 'r')) as file:
+#     monkeys = read_file(file)
+# st = time.time()
+# common_modulo = np.lcm.reduce([monkey.test.condition for monkey in monkeys])
