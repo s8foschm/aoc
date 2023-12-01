@@ -228,7 +228,7 @@ def convert_to_matrix_format(x, y):
     return new_X, new_Y
 
 
-with (open('input.txt', 'r')) as file:
+with (open('test_input.txt', 'r')) as file:
     st = time.time()
     print("Parsing file.")
     map = parse_file(file)
