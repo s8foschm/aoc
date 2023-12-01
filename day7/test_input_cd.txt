@@ -1,8 +1,0 @@
-$ cd /
-$ cd test
-$ cd hello
-$ cd ..
-$ cd /hello/test
-$ cd hello
-$ cd test
-$ cd ..
