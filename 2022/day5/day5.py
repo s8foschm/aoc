@@ -50,6 +50,12 @@ class Stacks:
         self.add_element(target, self.remove_element(origin))
 
     def move_elements(self, amount, origin, target):
+        # PART ONE
+        # elements are moved one at a time
+        #for i in range(0, amount):
+        #    self.move_element(origin, target)
+        # PART TWO
+        # elements are moved all at once
         # move the elements to a buffer stack first, reversing the order
         for i in range(0, amount):
             self.move_element(origin, 9)
