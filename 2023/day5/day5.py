@@ -111,25 +111,6 @@ def calculate_seed_ranges(seeds):
     print(len(seed_ranges))
     return seed_ranges
 
-
-def propagate(maps, range, layer, answer):
-    if layer == len(maps):
-        answer = min(answer, range.lower)
-        return answer
-    for dest, source, size in [(mapping.destination_start, mapping.source_start, mapping.length) for mapping in
-                               maps[layer].mappings]:
-        map_range = Range(source, source+size)
-        ins = range.intersection(map_range)
-        if ins is not None:
-            propagate(maps, ins.add(dest-source), layer+1, answer)
-            sub = range.subtract(map_range)
-            if len(sub) == 0:
-                return answer
-            range = sub[0]
-            if len(sub) == 2:
-                propagate(maps, sub[1], layer, answer)
-    propagate(maps, range, layer+1, answer)
-
 class p2solver:
     def __init__(self, maps):
         self.maps = maps
