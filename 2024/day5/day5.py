@@ -1,3 +1,10 @@
+# ADVENT OF CODE 2024
+# https://adventofcode.com/
+# Day 5
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc
+
+
 def parse_rules(rules_block):
     rules = []
     for line in rules_block:

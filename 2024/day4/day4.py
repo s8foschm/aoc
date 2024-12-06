@@ -1,4 +1,11 @@
-def count_word_occurrences(grid, word):
+# ADVENT OF CODE 2024
+# https://adventofcode.com/
+# Day 4
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc
+
+
+def count_word_occurrences(grid, woßrd):
     rows = len(grid)
     cols = len(grid[0])
 

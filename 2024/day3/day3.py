@@ -1,3 +1,9 @@
+# ADVENT OF CODE 2024
+# https://adventofcode.com/
+# Day 3
+# Francesco Georg Schmitt
+# https://github.com/s8foschm/aoc
+
 import sys
 sys.setrecursionlimit(100000) # :)
 

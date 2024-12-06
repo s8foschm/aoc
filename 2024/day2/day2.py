@@ -1,6 +1,6 @@
 # ADVENT OF CODE 2024
 # https://adventofcode.com/
-# Day 1
+# Day 2
 # Francesco Georg Schmitt
 # https://github.com/s8foschm/aoc
 
